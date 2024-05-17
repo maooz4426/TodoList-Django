@@ -12,6 +12,11 @@ class Category(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     #更新日
     updated_at = models.DateTimeField(auto_now=True)
+
+    #これ入れないと管理画面でcategoryobjectgって名前になる
+    def __str__(self):
+        return self.name
+
 class Task(models.Model):
     #タスク名
     title = models.CharField(max_length=255)
@@ -32,3 +37,6 @@ class Task(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     #タスク完了日
     updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.title
