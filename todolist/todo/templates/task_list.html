@@ -1,0 +1,10 @@
+{% extends './layout.html' %}
+
+{% block content %}
+<h1>Task一覧</h1>
+
+{% for task in object_list %}
+    <p>{{task.title}},{{task.deadline}}</p>
+{% endfor %}
+
+{% endblock %}
