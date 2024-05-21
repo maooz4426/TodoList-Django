@@ -1,0 +1,20 @@
+{% extends './layout.html' %}
+
+{% block content %}
+    <div class='card text-center'>
+    <div class="card-header bg-info text-white">
+        <h1>{{ task.title }}</h1>
+    </div>
+    <div class="card-body">
+        <p class="card-text">タスクを設定した人: {{ task.author }}</p>
+        <p class="card-text">カテゴリ: {{ task.category.name }}</p>
+        <p class="card-text">締切: {{ task.deadline }}</p>
+    </div>
+    </div>
+
+
+<div class="reverse">
+    <a class = ' btn btn-secondary' href='{% url "todo:list" %}'>一覧</a>
+</div>
+
+{% endblock %}
