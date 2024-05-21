@@ -1,7 +1,10 @@
 from django.db import models
+from django.urls import reverse
+
 
 #カテゴリモデル
 class Category(models.Model):
+
     #カテゴリ名
     name = models.CharField(max_length=255)
     #カテゴリを設定した人
@@ -13,11 +16,12 @@ class Category(models.Model):
     #更新日
     updated_at = models.DateTimeField(auto_now=True)
 
-    #これ入れないと管理画面でcategoryobjectgって名前になる
+    #これ入れないと管理画面でcategoryobjectって名前になる
     def __str__(self):
         return self.name
 
 class Task(models.Model):
+
     #タスク名
     title = models.CharField(max_length=255)
     # タスクを設定した人
@@ -40,3 +44,6 @@ class Task(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('todo:detail', kwargs={'pk': self.pk})

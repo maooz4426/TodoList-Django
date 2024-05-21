@@ -1,0 +1,16 @@
+{% extends './layout.html' %}
+
+{% block content %}
+    <h1>タスクの削除</h1>
+
+    <p>{{ task.title }}を削除しますか?</p>
+
+    <form method='post'>{% csrf_token %}
+        <button type='submit' class='submit delete btn-danger'>削除</button>
+    </form>
+
+    <div>
+        <p><a href='javaScript:history.back()'>戻る</a></p>
+    </div>
+
+{% endblock %}
