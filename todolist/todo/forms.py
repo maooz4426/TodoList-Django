@@ -12,7 +12,11 @@ class TaskForm(forms.ModelForm):
         #ウィジェットはフォームとかの部品の種類を指定する要素
         #djangoのフォームウィジェットにHTML属性を付与する(attrs)
         widgets = {
-            'deadline': forms.DateTimeInput(attrs={'type': 'datetime-local'}),
+            'title': forms.TextInput(attrs={'class': 'form-control'}),
+            'author': forms.TextInput(attrs={'class': 'form-control'}),
+            'category': forms.Select(attrs={'class': 'form-control'}),  # カテゴリが選択肢の場合
+            'deadline': forms.DateTimeInput(attrs={'type': 'datetime-local', 'class': 'form-control'}),
+
         }
 
 

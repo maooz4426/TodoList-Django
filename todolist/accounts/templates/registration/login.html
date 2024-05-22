@@ -3,15 +3,16 @@
 {% block content %}
 <h1>Login</h1>
 <section class='common-form'>
+{#入力エラーがあったら表示#}
     {% if form.errors %}
-        <p class='error-msg'>Your username and password didn't match. Please try again.</p>
+        <p class='error-msg'>あなたのユーザーネームとパスワードが一致しません</p>
     {% endif %}
 
 {#nextにログイン後のpageを埋め込み#}
     {% if next %}
         {% if user.is_authenticated %}
-            <p class='error-msg'>Your account doesn't have access to this page. To proceed,
-            please login with an account that has access.</p>
+            <p class='error-msg'>あなたのアカウントではこのページにアクセスできません。続行するには、
+アクセス権のあるアカウントでログインしてください。</p>
         {% else %}
         {# ログインせずに開くと表示#}
             <p class='error-msg'>ログインしてください。</p>
@@ -20,6 +21,7 @@
 
     <form action='{% url "accounts:login" %}' method='post'>
         {% csrf_token %}
+{#        ログインした後のURLを送信、コレはユーザーには見えない#}
         <input type='hidden' name='next' value='{{ next }}'/>
         {{ form.as_p }}
         <button type='submit'>Login</button>
