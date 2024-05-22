@@ -18,10 +18,11 @@ class ListView(LoginRequiredMixin,generic.ListView):
     #コンテキストを加工するメソッド
     def get_context_data(self):
         context = super().get_context_data()
+        user = self.request.user
 
         #prioritykeyに対して降順に表示させるためにorder_by('pk')
-        context["completed_tasks"] = Task.objects.filter(completed=True).order_by('pk')
-        context["incompleted_tasks"] = Task.objects.filter(completed=False).order_by('pk')
+        context["completed_tasks"] = Task.objects.filter(author = user,completed=True).order_by('pk')
+        context["incompleted_tasks"] = Task.objects.filter(author = user,completed=False).order_by('pk')
         return context
 
 class DetailView(LoginRequiredMixin,generic.DetailView):
