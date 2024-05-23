@@ -1,26 +1,22 @@
 
-div{
-    display: flex;
-}
-th{
-    width: 20%;
-}
+
+
 
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.card {
-    margin-top: 20px; /* 必要に応じて調整 */
-}
+/*.card {*/
+/*    margin-top: 20px; !* 必要に応じて調整 *!*/
+/*}*/
 
 .reverse{
     display: flex;
     justify-content: end;
     align-items: center;
 
-/*   bootstrapだと d-flex justify-content-end*/
+/*!*   bootstrapだと d-flex justify-content-end*!*/
 }
 
 /*上手くいかなかったのでbootstrapのd-flexを使用*/
