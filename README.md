@@ -1,2 +1,13 @@
 # TodoList-Django
-Practice Django &amp; Postgresql &amp; Docker
+
+コンテナイメージの作成
+```
+docker compose build
+```
+
+コンテナの起動
+```
+docker compose up
+```
+
+http://localhost:8000/
