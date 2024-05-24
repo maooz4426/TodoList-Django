@@ -13,8 +13,9 @@
     </div>
 
 
-<div class="reverse">
+<div class="d-flex justify-content-between">
     <a class = ' btn btn-secondary' href='{% url "todo:list" %}'>一覧</a>
+    <a class = 'btn btn-primary' href="{% url 'todo:update' task.pk%}">編集</a>
 </div>
 
 {% endblock %}
