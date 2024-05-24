@@ -1,0 +1,61 @@
+{% extends './layout.html' %}
+
+{% block content %}
+<div class="header ">
+    <h1>Task一覧</h1>
+        <a class="btn btn-primary" href="{% url 'todo:create' %}">作成</a>
+</div>
+
+<table class="table incompleted_table">
+    <thead class="thead-dark">
+        <tr>
+            <th class="th-custom">タスクNo</th>
+            <th class="th-custom">タスク名</th>
+            <th class="th-custom">操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in incompleted_tasks %}
+            {% if not task.completed %}
+                <tr>
+                    <td>{{ task.pk }}</td>
+                    <td>{{ task.title }}</td>
+                    <td>
+                        <a class="btn btn-info" href="{% url 'todo:detail' task.pk %}">詳細</a>
+                        <a class='btn btn-secondary' href="{% url 'todo:update' task.pk %}">編集</a>
+                        <a class='btn btn-danger' href="{% url 'todo:delete' task.pk %}">削除</a>
+                        <a class='btn btn-success' href="{% url 'todo:complete' task.pk %}">完了</a>
+                    </td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </tbody>
+</table>
+
+<h1>完了済みタスク一覧</h1>
+<table class="table completed_table">
+    <thead class="thead-dark">
+        <tr>
+            <th class="th-custom">タスクNo</th>
+            <th class="th-custom">タスク名</th>
+            <th class="th-custom">操作</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for task in completed_tasks %}
+            {% if task.completed %}
+                <tr>
+                    <td>{{ task.pk }}</td>
+                    <td>{{ task.title }}</td>
+                    <td>
+                        <a class="btn btn-info" href="{% url 'todo:detail' task.pk %}">詳細</a>
+                        <a class='btn btn-secondary' href="{% url 'todo:update' task.pk %}">編集</a>
+                        <a class='btn btn-danger' href="{% url 'todo:delete' task.pk %}">削除</a>
+                        <a class='btn btn-secondary' href="{% url 'todo:reverse' task.pk %}">元に戻す</a>
+                    </td>
+                </tr>
+            {% endif %}
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

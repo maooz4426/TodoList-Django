@@ -1,0 +1,7 @@
+{% extends './layout.html' %}
+
+{% block content %}
+<h1>LogOut</h1>
+<p>ログアウトしました。</p>
+<p><a class='btn btn-secondary' href='{% url "accounts:login" %}'>再ログイン</a></p>
+{% endblock %}
