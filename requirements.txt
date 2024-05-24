@@ -1,2 +1,6 @@
 Django==4.1
 psycopg2  # 最新の安定バージョン（2024年5月時点）
+
+dj-database-url
+gunicorn
+whitenoise
