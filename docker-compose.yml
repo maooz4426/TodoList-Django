@@ -6,7 +6,7 @@ services:
     build:
       context: .
       dockerfile: containers/django/Dockerfile
-    working_dir: /code/todolist/
+    working_dir: /code/
     volumes:
       - .:/code
     ports:

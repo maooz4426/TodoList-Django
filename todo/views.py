@@ -32,6 +32,7 @@ class DetailView(LoginRequiredMixin,generic.DetailView):
 class CreateView(LoginRequiredMixin,generic.edit.CreateView):
     template_name = 'todo/task_form.html'
     form_class = TaskForm
+    success_url = reverse_lazy('todo:list')
 
 class UpdateView(LoginRequiredMixin,generic.edit.UpdateView):
     template_name = 'todo/task_form.html'
