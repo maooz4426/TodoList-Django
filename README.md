@@ -1,5 +1,8 @@
 # TodoList-Django
 
+## qittaに記事
+https://qiita.com/maooz4426/items/c03dbcedcf0c4276f80c
+
 ## 環境変数の設定
 
 このプロジェクトでは、以下の環境変数を設定する必要があります。
